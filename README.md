@@ -1,4 +1,4 @@
-# Counter-Blox-Remastered-Visuals-GUI ( WIP ) #
+# Counter-Blox-Remastered-Visuals-GUI #
 ## A open source GUI for Counter Blox Remastered on Roblox, Focuses mainly on Visuals.
 
 RightControl Is The Default Keybind To Close And Open The GUI
