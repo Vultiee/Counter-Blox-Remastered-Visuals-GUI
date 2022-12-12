@@ -32,3 +32,4 @@ If you want me to add more features and or update the script, Contact me on Disc
 * Bullet Trails 
 * X-Ray
 * Loader(?) (for fun)
+* Ability to customize GUI (Changing background color, etc ,etc)
