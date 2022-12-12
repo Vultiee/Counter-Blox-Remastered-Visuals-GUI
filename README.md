@@ -23,3 +23,12 @@ If you want me to add more features and or update the script, Contact me on Disc
 **Discord Id: 498651365040717835**
 
 **yordii#6079**
+
+# To do list #
+* SkyBox Changer
+* Rework smoke scripts
+* Gun Chams
+* 3rd person
+* Bullet Trails 
+* X-Ray
+* Loader(?) (for fun)
