@@ -24,7 +24,7 @@ If you want me to add more features and or update the script, Contact me on Disc
 
 **yordii#6079**
 
-# To do list #
+# Things to add maybe #
 * SkyBox Changer
 * Rework smoke scripts
 * Gun Chams
