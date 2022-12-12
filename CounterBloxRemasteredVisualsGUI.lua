@@ -129,10 +129,7 @@ EnableButton.Text = "Enable Arm Chams"
 EnableButton.TextColor3 = Color3.fromRGB(255, 255, 255)
 EnableButton.TextSize = 15.000
 EnableButton.MouseButton1Down:connect(function()
-	getgenv().Transparency = InputTransparencyNumber.Text
-	getgenv().Color = Color3.fromRGB(InputArmChamsColorR.Text, InputArmChamsColorG.Text, InputArmChamsColorB.Text)
-	getgenv().Material= Enum.Material.ForceField
-
+	getgenv().Transparency = 0.25
 	
 	game.RunService.Heartbeat:Connect(function()
 		for i,v in pairs(game:GetService("Workspace").Camera.Arms:GetDescendants()) do 
@@ -577,6 +574,19 @@ SetTransparency_2.Text = "Set Plant Area Transparency"
 SetTransparency_2.TextColor3 = Color3.fromRGB(255, 255, 255)
 SetTransparency_2.TextSize = 13.000
 SetTransparency_2.TextStrokeColor3 = Color3.fromRGB(255, 255, 255)
+SetTransparency_2.MouseButton1Down:connect(function()
+	getgenv().Transparency = InputPlantAreaTransparency.Text
+	getgenv().Material = Enum.Material.ForceField
+	
+	game.RunService.Heartbeat:Connect(function()
+		for i,v in pairs(game:GetService("Workspace").Map:GetDescendants()) do 
+			if v.Name == "C4Plant" or v.Name == "C4Plant2" then 
+				v.Transparency = getgenv().Transparency
+				v.Material = getgenv().Material
+			end 
+		end 
+	end) 
+end)
 
 Box7.Name = "Box7"
 Box7.Parent = background1
@@ -614,6 +624,13 @@ EnableSmokeParticles.Text = "Enable Smoke Particles"
 EnableSmokeParticles.TextColor3 = Color3.fromRGB(255, 255, 255)
 EnableSmokeParticles.TextSize = 13.000
 EnableSmokeParticles.TextStrokeColor3 = Color3.fromRGB(255, 255, 255)
+EnableSmokeParticles.MouseButton1Down:connect(function()
+	_G.RemoveSmokeGrenParticle = false 
+	while _G.RemoveSmokeGrenParticle do
+		game:GetService("Workspace")["Ray_Ignore"].Smokes.Smoke.ParticleEmitter:Destroy()
+		wait()
+	end 
+end)
 
 DisableSmokeParticles.Name = "Disable Smoke Particles"
 DisableSmokeParticles.Parent = Box7
@@ -626,6 +643,13 @@ DisableSmokeParticles.Text = "Disable Smoke Particles"
 DisableSmokeParticles.TextColor3 = Color3.fromRGB(255, 255, 255)
 DisableSmokeParticles.TextSize = 13.000
 DisableSmokeParticles.TextStrokeColor3 = Color3.fromRGB(255, 255, 255)
+DisableSmokeParticles.MouseButton1Down:connect(function()
+	_G.RemoveSmokeGrenParticle = true 
+	while _G.RemoveSmokeGrenParticle do
+		game:GetService("Workspace")["Ray_Ignore"].Smokes.Smoke.ParticleEmitter:Destroy()
+		wait()
+	end 
+end)
 
 Box8.Name = "Box8"
 Box8.Parent = background1
@@ -663,6 +687,13 @@ EnableSmoke.Text = "Enable Smoke "
 EnableSmoke.TextColor3 = Color3.fromRGB(255, 255, 255)
 EnableSmoke.TextSize = 13.000
 EnableSmoke.TextStrokeColor3 = Color3.fromRGB(255, 255, 255)
+EnableSmoke.MouseButton1Down:connect(function()
+	_G.RemoveSmoke = false 
+	while _G.RemoveSmoke do
+		game:GetService("Workspace")["Ray_Ignore"].Smokes.Smoke:Destroy()
+		wait()
+	end 
+end)
 
 DisableSmoke.Name = "Disable Smoke "
 DisableSmoke.Parent = Box8
@@ -675,7 +706,13 @@ DisableSmoke.Text = "Disable Smoke "
 DisableSmoke.TextColor3 = Color3.fromRGB(255, 255, 255)
 DisableSmoke.TextSize = 13.000
 DisableSmoke.TextStrokeColor3 = Color3.fromRGB(255, 255, 255)
-
+DisableSmoke.MouseButton1Down:connect(function()
+	_G.RemoveSmoke = true 
+	while _G.RemoveSmoke do
+		game:GetService("Workspace")["Ray_Ignore"].Smokes.Smoke:Destroy()
+		wait()
+	end 
+end)
 
 	local script = Instance.new('LocalScript', Gui)
 
