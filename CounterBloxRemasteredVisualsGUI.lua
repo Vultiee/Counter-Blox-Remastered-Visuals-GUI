@@ -128,6 +128,52 @@ EnableButton.Font = Enum.Font.Ubuntu
 EnableButton.Text = "Enable Arm Chams"
 EnableButton.TextColor3 = Color3.fromRGB(255, 255, 255)
 EnableButton.TextSize = 15.000
+EnableButton.MouseButton1Down:connect(function()
+	getgenv().Transparency = InputTransparencyNumber.Text
+	getgenv().Color = Color3.fromRGB(InputArmChamsColorR.Text, InputArmChamsColorG.Text, InputArmChamsColorB.Text)
+	getgenv().Material= Enum.Material.ForceField
+
+	
+	game.RunService.Heartbeat:Connect(function()
+		for i,v in pairs(game:GetService("Workspace").Camera.Arms:GetDescendants()) do 
+			if v.Name == "Left Arm" then 
+				v.Color = getgenv().Color 
+				v.Material = getgenv().Material
+				v.Transparency = getgenv().Transparency 
+			end 
+		end 
+	end)
+
+	game.RunService.Heartbeat:Connect(function()
+		for i,v in pairs(game:GetService("Workspace").Camera.Arms:GetDescendants()) do 
+			if v.Name == "Right Arm" then 
+				v.Color = getgenv().Color 
+				v.Material = getgenv().Material
+				v.Transparency = getgenv().Transparency 
+			end 
+		end 
+	end)
+
+	game.RunService.Heartbeat:Connect(function()
+		for i,v in pairs(game:GetService("Workspace").Camera.Arms:GetDescendants()) do 
+			if v.Name == "Glove" then 
+				v.Color = getgenv().Color 
+				v.Material = getgenv().Material
+				v.Transparency = getgenv().Transparency 
+			end 
+		end 
+	end)
+	
+	game.RunService.Heartbeat:Connect(function()
+		for i,v in pairs(game:GetService("Workspace").Camera.Arms:GetDescendants()) do 
+			if v.Name == "Sleeve" then 
+				v.Color = getgenv().Color 
+				v.Material = getgenv().Material
+				v.Transparency = getgenv().Transparency 
+			end 
+		end 
+	end)
+end)
 
 InputArmChamsColorG.Name = "InputArmChamsColorG"
 InputArmChamsColorG.Parent = Box1
@@ -168,6 +214,9 @@ SetArmChamsColor.Text = "Set Arm Chams Color"
 SetArmChamsColor.TextColor3 = Color3.fromRGB(255, 255, 255)
 SetArmChamsColor.TextSize = 15.000
 SetArmChamsColor.TextStrokeColor3 = Color3.fromRGB(255, 255, 255)
+SetArmChamsColor.MouseButton1Down:connect(function()
+	getgenv().Color = Color3.fromRGB(InputArmChamsColorR.Text, InputArmChamsColorG.Text, InputArmChamsColorB.Text)
+end)
 
 SetTransparency.Name = "Set Transparency"
 SetTransparency.Parent = Box1
@@ -180,6 +229,9 @@ SetTransparency.Text = "Set Transparency"
 SetTransparency.TextColor3 = Color3.fromRGB(255, 255, 255)
 SetTransparency.TextSize = 15.000
 SetTransparency.TextStrokeColor3 = Color3.fromRGB(255, 255, 255)
+SetTransparency.MouseButton1Down:connect(function()
+	getgenv().Transparency = InputTransparencyNumber.Text
+end)
 
 InputArmChamsColorR.Name = "InputArmChamsColorR"
 InputArmChamsColorR.Parent = Box1
@@ -258,6 +310,13 @@ ChangeFov.Font = Enum.Font.Ubuntu
 ChangeFov.Text = "Change FOV"
 ChangeFov.TextColor3 = Color3.fromRGB(255, 255, 255)
 ChangeFov.TextSize = 15.000
+ChangeFov.MouseButton1Down:connect(function()
+	getgenv().number = InputFOVNumber.Text -- max is 120
+
+	game.RunService.Heartbeat:Connect(function()
+		game:GetService("Workspace").Camera.FieldOfView = getgenv().number
+	end) 
+end)
 
 Note.Name = "Note"
 Note.Parent = Box2
@@ -321,6 +380,10 @@ ChangeBrightness.Font = Enum.Font.Ubuntu
 ChangeBrightness.Text = "Change Brightness"
 ChangeBrightness.TextColor3 = Color3.fromRGB(255, 255, 255)
 ChangeBrightness.TextSize = 15.000
+ChangeBrightness.MouseButton1Down:connect(function()
+	game:GetService("Lighting").Brightness = InputBrightnessNumber.Text
+
+end)
 
 Box4.Name = "Box4"
 Box4.Parent = background1
@@ -372,6 +435,15 @@ SetAmbientChanger.Text = "Set Ambient"
 SetAmbientChanger.TextColor3 = Color3.fromRGB(255, 255, 255)
 SetAmbientChanger.TextSize = 15.000
 SetAmbientChanger.TextStrokeColor3 = Color3.fromRGB(255, 255, 255)
+SetAmbientChanger.MouseButton1Down:connect(function()
+	game:GetService("Lighting").Ambient = Color3.fromRGB(InputAmbientChangerR.Text, InputAmbientChangerG.Text, InputAmbientChangerB.Text)
+	wait(0.01)
+	game:GetService("Lighting").ColorShift_Top = Color3.fromRGB(InputAmbientChangerR.Text, InputAmbientChangerG.Text, InputAmbientChangerB.Text)
+	wait(0.01)
+	game:GetService("Lighting").ColorShift_Bottom = Color3.fromRGB(InputAmbientChangerR.Text, InputAmbientChangerG.Text, InputAmbientChangerB.Text)
+	wait(0.01)
+	game:GetService("Lighting").OutdoorAmbient = Color3.fromRGB(InputAmbientChangerR.Text, InputAmbientChangerG.Text, InputAmbientChangerB.Text)  
+end)
 
 InputAmbientChangerG.Name = "InputAmbientChangerG"
 InputAmbientChangerG.Parent = Box4
@@ -451,6 +523,9 @@ SetClockTime.Text = "Set Clock Time"
 SetClockTime.TextColor3 = Color3.fromRGB(255, 255, 255)
 SetClockTime.TextSize = 15.000
 SetClockTime.TextStrokeColor3 = Color3.fromRGB(255, 255, 255)
+SetClockTime.MouseButton1Down:connect(function()
+	game:GetService("Lighting").ClockTime = InputClockTime.Text
+end)
 
 Box6.Name = "Box6"
 Box6.Parent = background1
